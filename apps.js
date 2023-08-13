@@ -11,7 +11,7 @@
 // ========= display Phones ===========//
 
 const displayPhone=async()=>{
-  const url='https://openapi.programming-hero.com/api/phones?search=iphone'
+  const url='https://openapi.programming-hero.com/api/phones?search=oppo'
     const res=await fetch(url)
     const data=await res.json();
     showPhones(data.data)
@@ -27,8 +27,13 @@ const showPhones=(phones)=>{
     <div class="card">
       <img src=${image} class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h3 class="card-title text-center text-success">${brand}</h3>
+        <h4 class="text-center">Phone Model : ${phone_name}</h4>
+        <p class="card-text text-center">
+        
+            ${slug.length>10 ? slug.slice(0,19): {slug} }  
+        
+        </p>
       </div>
     </div>
   </div>
