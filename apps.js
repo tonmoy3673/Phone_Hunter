@@ -22,6 +22,8 @@ const showPhones=(phones)=>{
     
     phoneDiv.innerText='';
     phones=phones.slice(0,9);
+    const errorMessage=document.getElementById('error-message');
+    
     phones.forEach(phone => {
      
         const {image,phone_name,brand,slug}=phone;
