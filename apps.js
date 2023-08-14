@@ -19,9 +19,9 @@ const displayPhone=async(inputText)=>{
 
 const showPhones=(phones)=>{
     const phoneDiv=document.getElementById('phone-container');
-   
+    
     phoneDiv.innerText='';
-    phones.slice(0,9);
+    
     phones.forEach(phone => {
      
         const {image,phone_name,brand,slug}=phone;
