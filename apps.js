@@ -19,8 +19,11 @@ const displayPhone=async(inputText)=>{
 
 const showPhones=(phones)=>{
     const phoneDiv=document.getElementById('phone-container');
+   
     phoneDiv.innerText='';
+    phones.slice(0,9);
     phones.forEach(phone => {
+     
         const {image,phone_name,brand,slug}=phone;
     const oneDiv=document.createElement('div');
     oneDiv.innerHTML=`
@@ -48,6 +51,7 @@ document.getElementById('search-btn').addEventListener('click',function () {
   const inputField=document.getElementById('input-field');
   const inputText=inputField.value;
   displayPhone(inputText);
+  inputField.value='';
 });
 
 
