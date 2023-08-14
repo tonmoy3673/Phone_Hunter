@@ -23,7 +23,11 @@ const showPhones=(phones)=>{
     phoneDiv.innerText='';
     phones=phones.slice(0,9);
     const errorMessage=document.getElementById('error-message');
-    
+    if (phones.length===0) {
+      errorMessage.classList.remove('d-none')
+    } else {
+      errorMessage.classList.add('d-none')
+    }
     phones.forEach(phone => {
      
         const {image,phone_name,brand,slug}=phone;
