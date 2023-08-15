@@ -51,9 +51,11 @@ const showPhones=(phones)=>{
     `
     phoneDiv.appendChild(oneDiv)
     });
+    toggleSpinner(false);
 }
 
 document.getElementById('search-btn').addEventListener('click',function () {
+  toggleSpinner(true);
   const inputField=document.getElementById('input-field');
   const inputText=inputField.value;
   displayPhone(inputText);
@@ -64,7 +66,12 @@ document.getElementById('search-btn').addEventListener('click',function () {
 // ======== spinner function ============//
 
 const toggleSpinner=(isLoading)=>{
-  
+  const loaderSpin=document.getElementById('spinner');
+  if (isLoading) {
+    loaderSpin.classList.remove('d-none')
+  } else {
+    loaderSpin.classList.add('d-none')
+  }
 }
 
 displayPhone('oppo');
