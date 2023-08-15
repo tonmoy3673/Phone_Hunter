@@ -61,4 +61,10 @@ document.getElementById('search-btn').addEventListener('click',function () {
 });
 
 
+// ======== spinner function ============//
+
+const toggleSpinner=(isLoading)=>{
+  
+}
+
 displayPhone('oppo');
