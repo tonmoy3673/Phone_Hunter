@@ -20,9 +20,15 @@ const displayPhone=async(inputText,limit)=>{
 const showPhones=(phones,limit)=>{
     const phoneDiv=document.getElementById('phone-container');
     
-
-    phoneDiv.innerText='';
+  const showAll=document.getElementById('show-all');
+  if (limit && phones.length>10) {
     phones=phones.slice(0,9);
+    showAll.classList.remove('d-none')
+  } else {
+    showAll.classList.add('d-none')
+  }
+    phoneDiv.innerText='';
+   
     const errorMessage=document.getElementById('error-message');
     if (phones.length===0) {
       errorMessage.classList.remove('d-none')
@@ -60,15 +66,13 @@ const phoneLimit=(limit)=>{
   const inputField=document.getElementById('input-field');
   const inputText=inputField.value;
   displayPhone(inputText,limit);
-  inputField.value='';
+  
 }
 
 document.getElementById('search-btn').addEventListener('click',function () {
-  toggleSpinner(true);
-  const inputField=document.getElementById('input-field');
-  
-  displayPhone(limit);
-  inputField.value='';
+  toggleSpinner(true); 
+  phoneLimit(9);
+ 
 });
 
 
@@ -86,7 +90,8 @@ const toggleSpinner=(isLoading)=>{
 // ========= show all button ============//
 
 document.getElementById('show-btn').addEventListener('click',function () {
-  displayPhone(inputText);
+  toggleSpinner(true); 
+  phoneLimit();
 });
 
 
