@@ -10,16 +10,17 @@
 
 // ========= display Phones ===========//
 
-const displayPhone=async(inputText)=>{
+const displayPhone=async(inputText,limit)=>{
   const url=`https://openapi.programming-hero.com/api/phones?search=${inputText}`
     const res=await fetch(url)
     const data=await res.json();
-    showPhones(data.data)
+    showPhones(data.data,limit)
 };
 
-const showPhones=(phones)=>{
+const showPhones=(phones,limit)=>{
     const phoneDiv=document.getElementById('phone-container');
     
+
     phoneDiv.innerText='';
     phones=phones.slice(0,9);
     const errorMessage=document.getElementById('error-message');
@@ -52,13 +53,21 @@ const showPhones=(phones)=>{
     phoneDiv.appendChild(oneDiv)
     });
     toggleSpinner(false);
+};
+
+const phoneLimit=(limit)=>{
+  toggleSpinner(true);
+  const inputField=document.getElementById('input-field');
+  const inputText=inputField.value;
+  displayPhone(inputText,limit);
+  inputField.value='';
 }
 
 document.getElementById('search-btn').addEventListener('click',function () {
   toggleSpinner(true);
   const inputField=document.getElementById('input-field');
-  const inputText=inputField.value;
-  displayPhone(inputText);
+  
+  displayPhone(limit);
   inputField.value='';
 });
 
@@ -72,6 +81,15 @@ const toggleSpinner=(isLoading)=>{
   } else {
     loaderSpin.classList.add('d-none')
   }
-}
+};
+
+// ========= show all button ============//
+
+document.getElementById('show-btn').addEventListener('click',function () {
+  displayPhone(inputText);
+});
+
+
+
 
 displayPhone('oppo');
