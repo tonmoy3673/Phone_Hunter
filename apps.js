@@ -96,7 +96,9 @@ document.getElementById('show-btn').addEventListener('click',function () {
 
 // ============= enter press ============//
 document.getElementById('input-field').addEventListener('keypress',function (e) {
-   console.log(e.key)
+    if (e.key==='Enter') {
+      
+    }
 })
 
 
