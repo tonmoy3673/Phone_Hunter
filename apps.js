@@ -10,18 +10,18 @@
 
 // ========= display Phones ===========//
 
-const displayPhone=async(inputText,limit)=>{
+const displayPhone=async(inputText)=>{
   const url=`https://openapi.programming-hero.com/api/phones?search=${inputText}`
     const res=await fetch(url)
     const data=await res.json();
-    showPhones(data.data,limit)
+    showPhones(data.data)
 };
 
-const showPhones=(phones,limit)=>{
+const showPhones=(phones)=>{
     const phoneDiv=document.getElementById('phone-container');
     
   const showAll=document.getElementById('show-all');
-  if (limit && phones.length>10) {
+  if (phones.length>10) {
     phones=phones.slice(0,9);
     showAll.classList.remove('d-none')
   } else {
@@ -61,17 +61,13 @@ const showPhones=(phones,limit)=>{
     toggleSpinner(false);
 };
 
-const phoneLimit=(limit)=>{
+
+
+document.getElementById('search-btn').addEventListener('click',function () {
   toggleSpinner(true);
   const inputField=document.getElementById('input-field');
   const inputText=inputField.value;
   displayPhone(inputText,limit);
-  
-}
-
-document.getElementById('search-btn').addEventListener('click',function () {
-  toggleSpinner(true); 
-  phoneLimit(9);
  
 });
 
@@ -89,10 +85,7 @@ const toggleSpinner=(isLoading)=>{
 
 // ========= show all button ============//
 
-document.getElementById('show-btn').addEventListener('click',function () {
-  toggleSpinner(true); 
-  phoneLimit();
-});
+
 
 
 
