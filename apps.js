@@ -91,13 +91,14 @@ const toggleSpinner=(isLoading)=>{
 
 document.getElementById('show-btn').addEventListener('click',function () {
   toggleSpinner(true);
-  phoneLimit()
+  phoneLimit();
 })
 
 // ============= enter press ============//
 document.getElementById('input-field').addEventListener('keypress',function (e) {
+
     if (e.key==='Enter') {
-      
+      phoneLimit(9);
     }
 })
 
