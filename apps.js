@@ -98,6 +98,7 @@ document.getElementById('show-btn').addEventListener('click',function () {
 document.getElementById('input-field').addEventListener('keypress',function (e) {
 
     if (e.key==='Enter') {
+      toggleSpinner(true);
       phoneLimit(9);
     }
 })
