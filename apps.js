@@ -66,6 +66,7 @@ const phoneLimit=(limit)=>{
   const inputField=document.getElementById('input-field');
   const inputText=inputField.value;
   displayPhone(inputText,limit);
+  
 }
 
 document.getElementById('search-btn').addEventListener('click',function () {
@@ -93,7 +94,10 @@ document.getElementById('show-btn').addEventListener('click',function () {
   phoneLimit()
 })
 
-
+// ============= enter press ============//
+document.getElementById('input-field').addEventListener('keypress',function (e) {
+   console.log(e.key)
+})
 
 
 displayPhone('oppo');
