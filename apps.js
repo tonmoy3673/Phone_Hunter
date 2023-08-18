@@ -51,6 +51,10 @@ const showPhones=(phones,limit)=>{
             ${slug.length>10 ? slug.slice(0,19)+' ' +'...More': `${slug}` }  
         
         </p>
+        <div class="">
+        <button type="button" class="btn btn-primary">Show Details</button>
+
+        </div>
       </div>
     </div>
   </div>
