@@ -52,7 +52,7 @@ const showPhones=(phones,limit)=>{
         
         </p>
         <div class="text-center py-2">
-        <button type="button" class="btn btn-primary">Show Details</button>
+        <button onClick=phoneDetails('${slug}') type="button" class="btn btn-primary">Show Details</button>
         </div>
       </div>
     </div>
@@ -105,6 +105,8 @@ document.getElementById('input-field').addEventListener('keypress',function (e) 
       phoneLimit(9);
     }
 })
+
+// ===========  show phone details ==========//
 
 
 displayPhone('oppo');
