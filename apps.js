@@ -109,7 +109,8 @@ document.getElementById('input-field').addEventListener('keypress',function (e) 
 // ===========  show phone details ==========//
 
 const phoneDetails=()=>{
-
+  const url=`https://openapi.programming-hero.com/api/phone/${id}`;
+  
 };
 
 displayPhone('oppo');
