@@ -108,8 +108,10 @@ document.getElementById('input-field').addEventListener('keypress',function (e) 
 
 // ===========  show phone details ==========//
 
-const phoneDetails=()=>{
+const phoneDetails=async(id)=>{
   const url=`https://openapi.programming-hero.com/api/phone/${id}`;
+  const res= await fetch(url);
+  const data=await res.json();
   
 };
 
