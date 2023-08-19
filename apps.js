@@ -52,7 +52,7 @@ const showPhones=(phones,limit)=>{
         
         </p>
         <div class="text-center py-2">
-        <button type="button" class="btn btn-primary">Show Details</button>
+        <button onClick=phoneDetails('${slug}') type="button" class="btn btn-primary">Show Details</button>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@ const phoneDetails=async(id)=>{
   const url=`https://openapi.programming-hero.com/api/phone/${id}`;
   const res= await fetch(url);
   const data=await res.json();
-  
+  console.log(data.data)
 };
 
 displayPhone('oppo');
