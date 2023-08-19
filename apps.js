@@ -108,5 +108,8 @@ document.getElementById('input-field').addEventListener('keypress',function (e) 
 
 // ===========  show phone details ==========//
 
+const phoneDetails=()=>{
+
+};
 
 displayPhone('oppo');
