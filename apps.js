@@ -120,8 +120,10 @@ const phoneDetails=async(id)=>{
 // ============= phone modal ============//
 
 const phoneModal=(phone)=>{
-  console.log(phone)
-}
+  const {name,brand,mainFeatures,others}=phone;
+  const modalTitle=document.getElementById('exampleModalLabel');
+  modalTitle.innerText=name;
+};
 
 
 displayPhone('oppo');
