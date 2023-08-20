@@ -124,7 +124,13 @@ const phoneModal=(phone)=>{
   console.log(phone)
   const modalTitle=document.getElementById('exampleModalLabel');
   modalTitle.innerText=name;
+const phoneModalBody=document.getElementById('modalBody');
+phoneModalBody.innerHTML=`
+<h5 class="text-center py-1 text-success">Brand : ${brand ? brand : 'Not Found'}</h5>
+<p class="text-center py-1 text-success">Display: ${mainFeatures.displaySize ? mainFeatures.displaySize : 'Not Found'}</p>
+<p class="text-center py-1 text-success">Bluetooth : ${others.Bluetooth ? others.Bluetooth :'Not Found'}</p>
 
+`
 };
 
 
