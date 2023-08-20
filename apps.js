@@ -53,7 +53,7 @@ const showPhones=(phones,limit)=>{
         </p>
         <div class="text-center py-2">
         <button onClick=phoneDetails('${slug}') type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneModal">Show Details</button>
-  
+      
         </div>
       </div>
     </div>
@@ -113,7 +113,15 @@ const phoneDetails=async(id)=>{
   const url=`https://openapi.programming-hero.com/api/phone/${id}`;
   const res= await fetch(url);
   const data=await res.json();
-  console.log(data.data)
+  phoneModal(data.data)
 };
+
+
+// ============= phone modal ============//
+
+const phoneModal=(phone)=>{
+  console.log(phone)
+}
+
 
 displayPhone('oppo');
