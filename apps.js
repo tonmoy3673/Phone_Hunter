@@ -121,7 +121,6 @@ const phoneDetails=async(id)=>{
 
 const phoneModal=(phone)=>{
   const {name,brand,mainFeatures,others}=phone;
-  console.log(phone)
   const modalTitle=document.getElementById('exampleModalLabel');
   modalTitle.innerText=name;
 const phoneModalBody=document.getElementById('modalBody');
