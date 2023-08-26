@@ -120,15 +120,18 @@ const phoneDetails=async(id)=>{
 // ============= phone modal ============//
 
 const phoneModal=(phone)=>{
-  const {name,brand,mainFeatures,others}=phone;
+  const {name,brand,mainFeatures,others,image}=phone;
+  console.log(phone)
   const modalTitle=document.getElementById('exampleModalLabel');
   modalTitle.innerText=name;
 const phoneModalBody=document.getElementById('modalBody');
 phoneModalBody.innerHTML=`
 <h5 class="text-center py-1 text-success">Brand : ${brand ? brand : 'Not Found'}</h5>
+<img src=${image} class="card-img-top img-fluid w-75 d-block mx-auto mt-3 pt-3" alt="...">
 <p class="text-center text-success">Display: ${mainFeatures.displaySize ? mainFeatures.displaySize : 'Not Found'}</p>
 <p class="text-center text-success">Memory: ${mainFeatures.memory ? mainFeatures.memory : 'Not Found'}</p>
 <p class="text-center text-success">Bluetooth : ${others.Bluetooth ? others.Bluetooth :'Not Found'}</p>
+
 
 `
 };
