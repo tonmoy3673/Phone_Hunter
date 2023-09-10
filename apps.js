@@ -58,6 +58,9 @@ const showAll=document.getElementById('show-btn');
         <h5 class="card-text ">${phone_name}</h5>
         <h6 class="card-text text-secondary">${slug}</h6>
       </div>
+      <div class="text-center py-2 pb-2">
+          <button type="button" class="btn btn-outline-info">Details...</button>
+        </div>
     </div>
   </div>
     `
@@ -114,3 +117,13 @@ const toggleSpinner=(isLoading)=>{
     }
 };
 
+// ======== phone details =========//
+const phoneDetails=async(id)=>{
+    const url=`https://openapi.programming-hero.com/api/phone/${id}`;
+    const res=await fetch(url);
+    const data=await res.json();
+    console.log(data.data);
+};
+phoneDetails();
+
+loadPhone('oppo');
