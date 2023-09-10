@@ -9,16 +9,16 @@
 // Example: https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089
 
 // ========= loadPhone ================//
-const loadPhone=async(text)=>{
+const loadPhone=async(text,limit)=>{
     const url=`https://openapi.programming-hero.com/api/phones?search=${text}`;
     const res= await fetch(url);
     const data=await res.json();
-    displayPhone(data.data);
+    displayPhone(data.data,limit);
 };
 
 
 // ==========  Display Phone ==========//
-const displayPhone=(phones)=>{
+const displayPhone=(phones,limit)=>{
     const phoneContainer=document.getElementById('phone-container');
     phoneContainer.innerText='';
 
@@ -26,7 +26,7 @@ const displayPhone=(phones)=>{
 
 
    const errorText=document.getElementById('error-text');
-   if (phones.length===0) {
+   if ( phones.length===0) {
         errorText.classList.remove('d-none')
    } else {
     errorText.classList.add('d-none')
@@ -34,7 +34,7 @@ const displayPhone=(phones)=>{
 
    //    ======== showAll ==========//
 const showAll=document.getElementById('show-btn');
-   if (phones.length>9) {
+   if (limit && phones.length>9) {
         phones=phones.slice(0,6);
         showAll.classList.remove('d-none');
    }
@@ -65,12 +65,20 @@ const showAll=document.getElementById('show-btn');
 
 };
 
+
+// ======== show Limited ======//
+
+const limitPhones=(limit)=>{
+    const inputText=document.getElementById('input-field');
+    const text=inputText.value;
+    loadPhone(text,limit);
+}
+
+
 // ========== Search button ============//
 
 document.getElementById('search-btn').addEventListener('click',function () {
-    const inputText=document.getElementById('input-field');
-    const text=inputText.value;
-    loadPhone(text);
+    limitPhones(6);
 })
 
 // ========= press enter ========//
@@ -78,11 +86,18 @@ document.getElementById('search-btn').addEventListener('click',function () {
 document.getElementById('input-field').addEventListener('keypress',function (e) {
  
     if (e.key==='Enter') {
-        const inputText=document.getElementById('input-field');
-        const text=inputText.value;
-        loadPhone(text);
+       limitPhones(6);
     }
    
 })
 
-loadPhone('oppo');
+// ======= display phones limit ============//
+document.getElementById('show-all').addEventListener('click',function () {
+    limitPhones()
+    const inputText=document.getElementById('input-field');
+    const text=inputText.value;
+    loadPhone(text)
+})
+
+
+
