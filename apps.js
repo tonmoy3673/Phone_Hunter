@@ -45,7 +45,6 @@ const displayPhone=(phones)=>{
       </div>
     </div>
   </div>
-    
     `
     phoneContainer.appendChild(oneDiv);
     });
