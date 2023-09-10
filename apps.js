@@ -16,12 +16,15 @@ const loadPhone=async(text)=>{
     displayPhone(data.data);
 };
 
+
+// ==========  Display Phone ==========//
 const displayPhone=(phones)=>{
-    
-    phones.forEach(phone => {
-    console.log(phone);
-    const {brand,image,phone_name,slug}=phone;
     const phoneContainer=document.getElementById('phone-container');
+    phoneContainer.innerText='';
+    phones.forEach(phone => {
+    // console.log(phone);
+    const {brand,image,phone_name,slug}=phone;
+    
     const oneDiv=document.createElement('div');
     oneDiv.innerHTML=`
      <div class="col">
@@ -42,6 +45,7 @@ const displayPhone=(phones)=>{
 
 };
 
+// ========== Search button ============//
 
 document.getElementById('search-btn').addEventListener('click',function () {
     const inputText=document.getElementById('input-field');
@@ -49,4 +53,16 @@ document.getElementById('search-btn').addEventListener('click',function () {
     loadPhone(text);
 })
 
-loadPhone();
+// ========= press enter ========//
+
+document.getElementById('input-field').addEventListener('keypress',function (e) {
+ 
+    if (e.key==='Enter') {
+        const inputText=document.getElementById('input-field');
+        const text=inputText.value;
+        loadPhone(text);
+    }
+   
+})
+
+loadPhone('oppo');
