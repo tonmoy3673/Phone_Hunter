@@ -40,6 +40,13 @@ const displayPhone=(phones)=>{
     });
 
 
-}
+};
+
+
+document.getElementById('search-btn').addEventListener('click',function () {
+    const inputText=document.getElementById('input-field');
+    const text=inputText.value;
+    
+})
 
 loadPhone();
