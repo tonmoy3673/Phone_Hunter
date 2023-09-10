@@ -19,7 +19,24 @@ const loadPhone=async()=>{
 const displayPhone=(phones)=>{
     
     phones.forEach(phone => {
-        
+    console.log(phone);
+    const {brand,image,phone_name,slug}=phone;
+    const phoneContainer=document.getElementById('phone-container');
+    const oneDiv=document.createElement('div');
+    oneDiv.innerHTML=`
+     <div class="col">
+    <div class="card pt-3 text-center">
+      <img src=${image} class="card-img-top w-75 mx-auto py-2" alt="phoneImage">
+      <div class="card-body">
+        <h4 class="card-title text-info fw-bolder">${brand}</h4>
+        <h5 class="card-text ">${phone_name}</h5>
+        <h6 class="card-text text-secondary">${slug}</h6>
+      </div>
+    </div>
+  </div>
+    
+    `
+    phoneContainer.appendChild(oneDiv);
     });
 
 
