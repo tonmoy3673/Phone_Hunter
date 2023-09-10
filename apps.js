@@ -21,6 +21,14 @@ const loadPhone=async(text)=>{
 const displayPhone=(phones)=>{
     const phoneContainer=document.getElementById('phone-container');
     phoneContainer.innerText='';
+
+   const errorText=document.getElementById('error-text');
+   if (phones.length===0) {
+        errorText.classList.remove('d-none')
+   } else {
+    errorText.classList.add('d-none')
+   }
+
     phones.forEach(phone => {
     // console.log(phone);
     const {brand,image,phone_name,slug}=phone;
