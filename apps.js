@@ -9,8 +9,8 @@
 // Example: https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089
 
 // ========= loadPhone ================//
-const loadPhone=async()=>{
-    const url='https://openapi.programming-hero.com/api/phones?search=iphone';
+const loadPhone=async(text)=>{
+    const url=`https://openapi.programming-hero.com/api/phones?search=${text}`;
     const res= await fetch(url);
     const data=await res.json();
     displayPhone(data.data);
@@ -46,7 +46,7 @@ const displayPhone=(phones)=>{
 document.getElementById('search-btn').addEventListener('click',function () {
     const inputText=document.getElementById('input-field');
     const text=inputText.value;
-    
+    loadPhone(text);
 })
 
 loadPhone();
