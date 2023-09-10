@@ -19,6 +19,8 @@ const loadPhone=async(text,limit)=>{
 
 // ==========  Display Phone ==========//
 const displayPhone=(phones,limit)=>{
+    
+    
     const phoneContainer=document.getElementById('phone-container');
     phoneContainer.innerText='';
 
@@ -62,13 +64,14 @@ const showAll=document.getElementById('show-btn');
     phoneContainer.appendChild(oneDiv);
     });
 
-
+    toggleSpinner(false);
 };
 
 
 // ======== show Limited ======//
 
 const limitPhones=(limit)=>{
+    toggleSpinner(true);
     const inputText=document.getElementById('input-field');
     const text=inputText.value;
     loadPhone(text,limit);
@@ -78,13 +81,14 @@ const limitPhones=(limit)=>{
 // ========== Search button ============//
 
 document.getElementById('search-btn').addEventListener('click',function () {
+    toggleSpinner(true);
     limitPhones(6);
 })
 
 // ========= press enter ========//
 
 document.getElementById('input-field').addEventListener('keypress',function (e) {
- 
+   
     if (e.key==='Enter') {
        limitPhones(6);
     }
@@ -93,6 +97,7 @@ document.getElementById('input-field').addEventListener('keypress',function (e) 
 
 // ======= display phones limit ============//
 document.getElementById('show-all').addEventListener('click',function () {
+    toggleSpinner(true);
     limitPhones()
     const inputText=document.getElementById('input-field');
     const text=inputText.value;
@@ -101,10 +106,11 @@ document.getElementById('show-all').addEventListener('click',function () {
 
 // ============ spinner ===========/
 const toggleSpinner=(isLoading)=>{
-    if (isLoading) {
-        
+    const showSpinner=document.getElementById('spinner')
+    if (isLoading===true) {
+        showSpinner.classList.remove('d-none')
     } else {
-        
+        showSpinner.classList.add('d-none')
     }
-}
+};
 
