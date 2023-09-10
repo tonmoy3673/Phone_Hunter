@@ -22,11 +22,24 @@ const displayPhone=(phones)=>{
     const phoneContainer=document.getElementById('phone-container');
     phoneContainer.innerText='';
 
+
+
+
    const errorText=document.getElementById('error-text');
    if (phones.length===0) {
         errorText.classList.remove('d-none')
    } else {
     errorText.classList.add('d-none')
+   }
+
+   //    ======== showAll ==========//
+const showAll=document.getElementById('show-btn');
+   if (phones.length>9) {
+        phones=phones.slice(0,6);
+        showAll.classList.remove('d-none');
+   }
+   else{
+    showAll.classList.add('d-none')
    }
 
     phones.forEach(phone => {
