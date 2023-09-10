@@ -59,7 +59,7 @@ const showAll=document.getElementById('show-btn');
         <h6 class="card-text text-secondary">${slug}</h6>
       </div>
       <div class="text-center py-2 pb-2">
-          <button onclick="phoneDetails('${slug}')" type="button" class="btn btn-outline-info">Details...</button>
+          <button onclick="phoneDetails('${slug}')" type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Details...</button>
         </div>
     </div>
   </div>
@@ -128,6 +128,9 @@ phoneDetails();
 
 const phoneModal=(phone)=>{
     console.log(phone)
+    const {slug}=phone
+    const modalTitle=document.getElementById('exampleModalLabel');
+    modalTitle.innerHTML=`${slug}`
 }
 
 loadPhone('oppo');
