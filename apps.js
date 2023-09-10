@@ -131,6 +131,10 @@ const phoneModal=(phone)=>{
     const {slug}=phone
     const modalTitle=document.getElementById('exampleModalLabel');
     modalTitle.innerHTML=`${slug}`
+    const modalDetails=document.getElementById('modalBody');
+    modalDetails.innerHTML=`
+    
+    `
 }
 
 loadPhone('oppo');
