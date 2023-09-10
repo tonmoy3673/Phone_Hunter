@@ -99,5 +99,12 @@ document.getElementById('show-all').addEventListener('click',function () {
     loadPhone(text)
 })
 
-
+// ============ spinner ===========/
+const toggleSpinner=(isLoading)=>{
+    if (isLoading) {
+        
+    } else {
+        
+    }
+}
 
