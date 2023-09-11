@@ -128,9 +128,9 @@ phoneDetails();
 
 const phoneModal=(phone)=>{
     console.log(phone)
-    const {slug}=phone
+    const {name,image,brand}=phone
     const modalTitle=document.getElementById('exampleModalLabel');
-    modalTitle.innerHTML=`${slug}`
+    modalTitle.innerHTML=`${name}`
     const modalDetails=document.getElementById('modalBody');
     modalDetails.innerHTML=`
     
