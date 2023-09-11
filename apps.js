@@ -128,16 +128,18 @@ phoneDetails();
 
 const phoneModal=(phone)=>{
     console.log(phone)
-    const {name,image,brand,mainFeatures,releaseDate}=phone
+    const {name,image,brand,mainFeatures,releaseDate,others}=phone
     const modalTitle=document.getElementById('exampleModalLabel');
     modalTitle.innerHTML=`${name}`
     const modalDetails=document.getElementById('modalBody');
     modalDetails.innerHTML=`
-    <img src=${image} class="card-img-top w-75 mx-auto py-2" alt="phoneImage">
-      <div class="card-body">
-        <h4 class="card-title text-info fw-bolder">${brand}</h4>
-        <h6 class="card-text text-secondary">Memory : ${mainFeatures.memory}</h6>
-        <h6 class="card-text text-secondary">Memory : ${mainFeatures.memory}</h6>
+
+      <div class="card-body text-center">
+      <img src=${image} class="card-img-top w-50 mx-auto py-2" alt="phoneImage">
+        <h4 class="card-title text-info fw-bolder pb-2">${brand}</h4>
+        <h5 class="card-title text-success fw-bolder pb-2">Model : ${name}</h5>
+        <h6 class="card-text text-secondary">Memory : ${mainFeatures?.memory ? mainFeatures?.memory :'Not Found' }</h6>
+        <h6 class="card-text text-secondary">Bluetooth : ${others?.Bluetooth ? others?.Bluetooth :'Not Found'}</h6>
         <h6 class="card-text">Release Date : ${releaseDate}</h6>
       </div>
     
