@@ -56,7 +56,7 @@ const displayPhones=(phones,limit)=>{
               <h6 class='text-center'>Model : ${slug.length>17? slug.slice(0,17):slug}</h6>
             </div>
             <div class='text-center py-2 mb-3'>
-            <button type="button" onclick="showPhoneDetails('${slug}')" class="btn btn-outline-info btn-sm">Details ...</button>
+            <button type="button" onclick="showPhoneDetails('${slug}')" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Details ...</button>      
             </div>
           </div>
        `
@@ -98,7 +98,7 @@ showPhoneModal(data.data)
 // ========= show phone modal ==========//
 
 const showPhoneModal=(phone)=>{
-    
+
 console.log(phone)
 }
 
