@@ -55,6 +55,9 @@ const displayPhones=(phones,limit)=>{
               <h6 class='text-center'>Device : ${phone_name}</h6>
               <h6 class='text-center'>Model : ${slug.length>17? slug.slice(0,17):slug}</h6>
             </div>
+            <div class='text-center py-2 mb-3'>
+            <button type="button" onclick="showPhoneDetails('${slug}')" class="btn btn-outline-info btn-sm">Details ...</button>
+            </div>
           </div>
        `
 
@@ -84,6 +87,20 @@ document.getElementById('show-all').addEventListener('click',function () {
     loadPhones(searchText);
 })
 
+
+const showPhoneDetails=async(id)=>{
+const url=`https://openapi.programming-hero.com/api/phone/${id}`
+const res=await fetch(url);
+const data=await res.json();
+showPhoneModal(data.data)
+}
+
+// ========= show phone modal ==========//
+
+const showPhoneModal=(phone)=>{
+    
+console.log(phone)
+}
 
 
 loadPhones('oppo');
