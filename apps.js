@@ -10,8 +10,8 @@
 
 
 // ============ loadPhone API ===========//
-const loadPhones=async()=>{
-    const url='https://openapi.programming-hero.com/api/phones?search=oppo';
+const loadPhones=async(searchText)=>{
+    const url=`https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     const res=await fetch(url);
     const data=await res.json();
     displayPhones(data.data)
@@ -21,6 +21,7 @@ const loadPhones=async()=>{
 // =========== displayPhone function ===========//
 const displayPhones=(phones)=>{
     const phoneContainer=document.getElementById('phone-container');
+    phoneContainer.innerText=' ';
     phones.forEach(phone => {
         console.log(phone)
         const {brand,image,phone_name,slug}=phone;
@@ -41,5 +42,14 @@ const displayPhones=(phones)=>{
     });
    
 }
+
+// ================  search btn =============//
+
+document.getElementById('search-btn').addEventListener('click',function () {
+    const searchText=document.getElementById('input-field').value;
+    document.getElementById('input-field').value='';
+    loadPhones(searchText);
+    
+})
 
 loadPhones();
