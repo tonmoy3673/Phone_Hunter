@@ -10,30 +10,36 @@
 
 
 // ============ loadPhone API ===========//
-const loadPhones=async(searchText)=>{
+const loadPhones=async(searchText,limit)=>{
     const url=`https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     const res=await fetch(url);
     const data=await res.json();
-    displayPhones(data.data)
+    displayPhones(data.data,limit)
 };
 
 
 // =========== displayPhone function ===========//
-const displayPhones=(phones)=>{
+const displayPhones=(phones,limit)=>{
     const phoneContainer=document.getElementById('phone-container');
     // ===========  error text ==============//
 
     const errorText=document.getElementById('error-text');
-    if (phones.length>0) {
-        errorText.classList.add('d-none')
+    if (phones.length===0) {
+        errorText.classList.remove('d-none')
     }
     else{
-        errorText.classList.remove('d-none')
+        errorText.classList.add('d-none')
     }
 
     // ========= show all button ===========//
+    const showAll=document.getElementById('show-btn');
+    if (phones.length>6 && limit) {
+        phones=phones.slice(0,6);
+        showAll.classList.remove('d-none')
+    } else {
+        showAll.classList.add('d-none')
+    }
 
-    
 
     phoneContainer.innerText=' ';
     phones.forEach(phone => {
@@ -57,13 +63,27 @@ const displayPhones=(phones)=>{
    
 }
 
+// =========== show all function ==============//
+
+const showAllPhones=(limit)=>{
+    const searchText=document.getElementById('input-field').value;
+    loadPhones(searchText,limit);
+}
+
+
 // ================  search btn =============//
 
 document.getElementById('search-btn').addEventListener('click',function () {
-    const searchText=document.getElementById('input-field').value;
-    document.getElementById('input-field').value='';
-    loadPhones(searchText);
+    showAllPhones(6);
     
 })
+
+document.getElementById('show-all').addEventListener('click',function () {
+    const searchText=document.getElementById('input-field').value;
+    showAllPhones();
+    loadPhones(searchText);
+})
+
+
 
 loadPhones('oppo');
