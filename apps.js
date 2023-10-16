@@ -21,6 +21,20 @@ const loadPhones=async(searchText)=>{
 // =========== displayPhone function ===========//
 const displayPhones=(phones)=>{
     const phoneContainer=document.getElementById('phone-container');
+    // ===========  error text ==============//
+
+    const errorText=document.getElementById('error-text');
+    if (phones.length>0) {
+        errorText.classList.add('d-none')
+    }
+    else{
+        errorText.classList.remove('d-none')
+    }
+
+    // ========= show all button ===========//
+
+    
+
     phoneContainer.innerText=' ';
     phones.forEach(phone => {
         console.log(phone)
@@ -52,4 +66,4 @@ document.getElementById('search-btn').addEventListener('click',function () {
     
 })
 
-loadPhones();
+loadPhones('oppo');

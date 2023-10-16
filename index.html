@@ -16,17 +16,27 @@
       <h3 class="text-center text-info fw-semibold mt-4">📱 Phone Hunter</h3>
     </header>
 
+    
     <!-- =========== input section ================ -->
     <div class="mb-3 d-flex justify-content-center">
       <input type="search" id="input-field" class="form-control w-25" placeholder="Type Phone Name">
       <button type="button" id="search-btn" class="btn btn-outline-info">Search</button>
     </div>
-
+    <!-- ========== Error Message ============ -->
+    <div id="error-text">
+      <h5 class="text-danger text-center py-3">Wrong Type!! Please type correct one</h5>
+    </div>
     <!-- ============== banner ============== -->
      <article class="py-5">
       <div class="row row-cols-1 row-cols-md-3 g-4" id="phone-container">
        
       </div>
+
+      <!-- ========== show all button ============ -->
+      <div class="py-4 mt-3 text-center">
+        <button type="button" id="show-btn" class="btn btn-outline-info">Show All</button>
+      </div>
+
     </article>
 
 
