@@ -62,12 +62,13 @@ const displayPhones=(phones,limit)=>{
 
        phoneContainer.appendChild(oneDiv);
     });
-   
+    toggleSpinner(false);
 }
 
 // =========== show all function ==============//
 
 const showAllPhones=(limit)=>{
+    toggleSpinner(true);
     const searchText=document.getElementById('input-field').value;
     loadPhones(searchText,limit);
 }
@@ -76,6 +77,7 @@ const showAllPhones=(limit)=>{
 // ================  search btn =============//
 
 document.getElementById('search-btn').addEventListener('click',function () {
+    toggleSpinner(true);
     showAllPhones(6);
     
 })
@@ -83,12 +85,14 @@ document.getElementById('search-btn').addEventListener('click',function () {
 // =========== Enter keyword function ============/
 document.getElementById('input-field').addEventListener('keypress',function (e) {
     if (e.key==='Enter') {
+        toggleSpinner(true);
         showAllPhones(6);
     }
 })
 
 document.getElementById('show-all').addEventListener('click',function () {
     const searchText=document.getElementById('input-field').value;
+    toggleSpinner(true);
     showAllPhones();
     loadPhones(searchText);
 })
@@ -100,6 +104,20 @@ const res=await fetch(url);
 const data=await res.json();
 showPhoneModal(data.data)
 }
+
+// ============== spinner ===============//
+
+const toggleSpinner=(isLoading)=>{
+    const loadSpinner=document.getElementById('spinner');
+    if (isLoading) {
+        loadSpinner.classList.remove('d-none')
+    }
+    else{
+        loadSpinner.classList.add('d-none')
+    }
+}
+
+
 
 // ========= show phone modal ==========//
 
