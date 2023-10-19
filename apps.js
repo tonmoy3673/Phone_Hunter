@@ -80,6 +80,13 @@ document.getElementById('search-btn').addEventListener('click',function () {
     
 })
 
+// =========== Enter keyword function ============/
+document.getElementById('input-field').addEventListener('keypress',function (e) {
+    if (e.key==='Enter') {
+        showAllPhones(6);
+    }
+})
+
 document.getElementById('show-all').addEventListener('click',function () {
     const searchText=document.getElementById('input-field').value;
     showAllPhones();
@@ -118,6 +125,4 @@ modalBody.innerHTML=`
 `
 console.log(phone)
 }
-
-
 loadPhones('oppo');
